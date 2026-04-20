@@ -14,28 +14,3 @@ class RestaurantFactory
         }
     }
 }
-
-interface IRestaurant
-{
-    void SetMenu(Menu menu);
-}
-
-class McDonalds : IRestaurant
-{
-    private Menu menu;
-
-    public void SetMenu(Menu menu)
-    {
-        // Set McDonald's specific menu
-    }
-}
-
-class BurgerKing : IRestaurant
-{
-    private Menu menu;
-    
-    public void SetMenu(Menu menu)
-    {
-        // Set Burger King's specific menu
-    }
-}
