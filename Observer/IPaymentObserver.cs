@@ -1,4 +1,4 @@
 interface IPaymentObserver
 {
-    void Update(PaymentStatus status);
+    void Update(PaymentSubject s);
 }

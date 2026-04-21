@@ -5,6 +5,7 @@ class BurgerKing : IRestaurant
     public BurgerKing()
     {
         menu = new Menu();
+        SetMenu(menu);
     }
     
     public Menu GetMenu()
@@ -28,13 +29,10 @@ class BurgerKing : IRestaurant
         menu.AddItem("Strawberry Milkshake", () => new Strawberry(new Milkshake()));
 
         // Combos
-        Combo whopperCombo = new ComboFacade.CreateCombo(menu.GetItem("Whopper"), menu.GetItem("Fries"), menu.GetItem("Coke"));
-        menu.AddItem("Whopper Combo", () => whopperCombo);
+        menu.AddItem("Whopper Combo", () => ComboFacade.CreateCombo(menu.GetItem("Whopper"), menu.GetItem("Fries"), menu.GetItem("Coke")));
 
-        Combo whopperBaconCombo = new ComboFacade.CreateCombo(menu.GetItem("Whopper Bacon"), menu.GetItem("Fries"), menu.GetItem("Coke"));
-        menu.AddItem("Whopper Bacon Combo", () => whopperBaconCombo);
+        menu.AddItem("Whopper Bacon Combo", () => ComboFacade.CreateCombo(menu.GetItem("Whopper Bacon"), menu.GetItem("Fries"), menu.GetItem("Coke")));
 
-        Combo strawberryMilkshakeCombo = new ComboFacade.CreateCustomCombo(new List<IMenuItem> { menu.GetItem("Strawberry Milkshake"), menu.GetItem("Fries") });
-        menu.AddItem("Strawberry Milkshake Combo", () => strawberryMilkshakeCombo);
+        menu.AddItem("Strawberry Milkshake Combo", () => ComboFacade.CreateCustomCombo(new List<IMenuItem> { menu.GetItem("Strawberry Milkshake"), menu.GetItem("Fries") }));
     }
 }

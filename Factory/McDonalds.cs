@@ -5,6 +5,7 @@ class McDonalds : IRestaurant
     public McDonalds()
     {
         menu = new Menu();
+        SetMenu(menu);
     }
 
     public Menu GetMenu()
@@ -27,13 +28,10 @@ class McDonalds : IRestaurant
         menu.AddItem("Chocolate Milkshake", () => new Chocolate(new Milkshake()));
 
         // Combos
-        Combo bigMacCombo = new ComboFacade.CreateCombo(menu.GetItem("Big Mac"), menu.GetItem("Fries"), menu.GetItem("Coke"));
-        menu.AddItem("Big Mac Combo", () => bigMacCombo);
+        menu.AddItem("Big Mac Combo", () => ComboFacade.CreateCombo(menu.GetItem("Big Mac"), menu.GetItem("Fries"), menu.GetItem("Coke")));
 
-        Combo bigMacBaconCombo = new ComboFacade.CreateCombo(menu.GetItem("Big Mac Bacon"), menu.GetItem("Fries"), menu.GetItem("Coke"));
-        menu.AddItem("Big Mac Bacon Combo", () => bigMacBaconCombo);
+        menu.AddItem("Big Mac Bacon Combo", () => ComboFacade.CreateCombo(menu.GetItem("Big Mac Bacon"), menu.GetItem("Fries"), menu.GetItem("Coke")));
 
-        Combo chocolateMilkshakeCombo = new ComboFacade.CreateCustomCombo(new List<IMenuItem> { menu.GetItem("Chocolate Milkshake"), menu.GetItem("Fries") });
-        menu.AddItem("Chocolate Milkshake Combo", () => chocolateMilkshakeCombo);
+        menu.AddItem("Chocolate Milkshake Combo", () => ComboFacade.CreateCustomCombo(new List<IMenuItem> { menu.GetItem("Chocolate Milkshake"), menu.GetItem("Fries") }));
     }
 }

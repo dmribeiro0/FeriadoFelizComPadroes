@@ -1,13 +1,14 @@
 class BKOrderingSystem : IOrderingSystem
 {
-    private Restaurant BurgerKing;
+    private IRestaurant BurgerKing;
     private List<IMenuItem> currentOrder;
-    private IPaymentMethod paymentMethod;
+    private IPaymentMethod? paymentMethod;
     private IPaymentObserver paymentObserver;
 
     public BKOrderingSystem()
     {
         BurgerKing = new BurgerKing();
+        currentOrder = new List<IMenuItem>();
         paymentObserver = new PaymentObserver();
     }
 
@@ -65,6 +66,18 @@ class BKOrderingSystem : IOrderingSystem
 
     public void PlaceOrder()
     {
+        if (paymentMethod == null)
+        {
+            Console.WriteLine("Select a payment method before placing the order.");
+            return;
+        }
+
+        if (currentOrder.Count == 0)
+        {
+            Console.WriteLine("Your order is empty.");
+            return;
+        }
+
         Console.WriteLine("Order placed successfully.");
         paymentMethod.Pay(currentOrder.Sum(i => i.GetPrice()));
     }

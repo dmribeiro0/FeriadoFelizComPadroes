@@ -1,0 +1,14 @@
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\FoodOrderingSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\FoodOrderingSystem.AssemblyInfoInputs.cache
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\FoodOrderingSystem.AssemblyInfo.cs
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\FoodOrderingSystem.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\bin\Debug\net9.0\FoodOrderingSystem.exe
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\bin\Debug\net9.0\FoodOrderingSystem.deps.json
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\bin\Debug\net9.0\FoodOrderingSystem.runtimeconfig.json
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\bin\Debug\net9.0\FoodOrderingSystem.dll
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\bin\Debug\net9.0\FoodOrderingSystem.pdb
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\FoodOrderingSystem.dll
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\refint\FoodOrderingSystem.dll
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\FoodOrderingSystem.pdb
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\FoodOrderingSystem.genruntimeconfig.cache
+C:\Users\Daniel\OneDrive\Documentos\Unifesp\ProjOO\FoodOrderingSystem\obj\Debug\net9.0\ref\FoodOrderingSystem.dll

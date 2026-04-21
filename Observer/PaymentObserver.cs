@@ -1,7 +1,10 @@
 class PaymentObserver : IPaymentObserver
 {
-    public void Update(PaymentStatus status)
+    public void Update(PaymentSubject subject)
     {
-        Console.WriteLine($"Payment status updated: {status.GetStatus()}");
+        if (subject is PaymentStatus paymentStatus)
+        {
+            Console.WriteLine($"Payment status updated: {paymentStatus.GetStatus()}");
+        }
     }
 }

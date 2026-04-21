@@ -4,6 +4,6 @@ interface IOrderingSystem
     void AddToOrder(string itemName);
     void RemoveFromOrder(string itemName);
     void DisplayOrder();
-    void SetPaymentMethod(string method);
+    void SetPaymentMethod(IPaymentMethod method);
     void PlaceOrder();
 }

@@ -1,8 +1,8 @@
-class Bun : MenuItemDecorator
+class ExtraBun : MenuItemDecorator
 {
     private double price = 0.50;
 
-    public Bun(IMenuItem item) : base(item)
+    public ExtraBun(IMenuItem item) : base(item)
     {
     }
 

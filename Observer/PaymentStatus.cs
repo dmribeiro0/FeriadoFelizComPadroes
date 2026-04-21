@@ -1,11 +1,11 @@
 class PaymentStatus : PaymentSubject
 {
-    private string status;
+    private string status = string.Empty;
 
     public void SetStatus(string newStatus)
     {
         status = newStatus;
-        NotifyObservers(this);
+        NotifyObservers();
     }
 
     public string GetStatus()
