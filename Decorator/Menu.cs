@@ -1,22 +1,17 @@
 class Menu
 {
-    private Dictionary<string, IMenuItem> menuItems;
+    private Dictionary<string, Func<IMenuItem>> menuItems = new();
 
-    public Menu()
+    public void AddItem(string name, Func<IMenuItem> creator)
     {
-        menuItems = new Dictionary<string, IMenuItem>();
-    }
-
-    public void AddItem(string name, IMenuItem item)
-    {
-        menuItems[name] = item;
+        menuItems[name] = creator;
     }
 
     public IMenuItem GetItem(string name)
     {
         if (menuItems.ContainsKey(name))
         {
-            return menuItems[name];
+            return menuItems[name](); // creates a NEW object
         }
         else
         {
