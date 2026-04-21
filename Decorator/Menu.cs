@@ -18,4 +18,9 @@ class Menu
             throw new Exception("Menu item not found.");
         }
     }
+
+    public Dictionary<string, Func<IMenuItem>> GetMenuItems()
+    {
+        return menuItems;
+    }
 }

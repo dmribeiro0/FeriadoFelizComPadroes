@@ -7,6 +7,11 @@ class BurgerKing : IRestaurant
         menu = new Menu();
     }
     
+    public Menu GetMenu()
+    {
+        return menu;
+    }
+
     public void SetMenu(Menu menu)
     {
         // Add Base Items
