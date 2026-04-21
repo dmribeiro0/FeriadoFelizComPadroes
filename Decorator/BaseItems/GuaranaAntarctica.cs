@@ -4,7 +4,6 @@ class GuaranaAntarctica : IMenuItem
 
     public double GetPrice()
     {
-        Console.WriteLine($"Guarana Antarctica price: ${this.price:F2}");
         return price;
     }
 }

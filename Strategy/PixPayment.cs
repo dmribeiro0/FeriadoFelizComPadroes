@@ -14,8 +14,9 @@ class PixPayment : IPaymentMethod
 
     public void Pay(double amount)
     {
+        Console.WriteLine($"[Payment | Pix] Processing payment of ${amount:0.00}");
         paymentStatus.SetStatus("Processing payment.");
         paymentStatus.SetStatus("Payment processed.");
-        Console.WriteLine($"Paid {amount} using Pix.");
+        Console.WriteLine("[Payment | Pix] Payment completed.");
     }
 }

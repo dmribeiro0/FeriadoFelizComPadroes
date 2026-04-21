@@ -15,8 +15,9 @@ class DebitCardPayment : IPaymentMethod
 
     public void Pay(double amount)
     {
+        Console.WriteLine($"[Payment | Debit Card] Processing payment of ${amount:0.00}");
         paymentStatus.SetStatus("Processing payment.");
         paymentStatus.SetStatus("Payment processed.");
-        Console.WriteLine($"Paid {amount} using Debit Card.");
+        Console.WriteLine("[Payment | Debit Card] Payment completed.");
     }
 }

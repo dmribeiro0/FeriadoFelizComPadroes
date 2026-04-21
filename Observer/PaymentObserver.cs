@@ -4,7 +4,7 @@ class PaymentObserver : IPaymentObserver
     {
         if (subject is PaymentStatus paymentStatus)
         {
-            Console.WriteLine($"Payment status updated: {paymentStatus.GetStatus()}");
+            Console.WriteLine($"[Payment Status] {paymentStatus.GetStatus()}");
         }
     }
 }

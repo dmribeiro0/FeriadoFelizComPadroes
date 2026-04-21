@@ -4,7 +4,6 @@ class Fries : IMenuItem
 
     public double GetPrice()
     {
-        Console.WriteLine($"Fries price: ${this.price:F2}");
         return price;
     }
 }

@@ -4,7 +4,6 @@ class Milkshake : IMenuItem
 
     public double GetPrice()
     {
-        Console.WriteLine($"Milkshake price: ${this.price:F2}");
         return price;
     }
 }

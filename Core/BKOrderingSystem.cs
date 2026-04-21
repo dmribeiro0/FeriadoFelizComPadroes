@@ -1,5 +1,6 @@
 class BKOrderingSystem : IOrderingSystem
 {
+    private const string RestaurantName = "Burger King";
     private IRestaurant BurgerKing;
     private List<IMenuItem> currentOrder;
     private IPaymentMethod? paymentMethod;
@@ -14,10 +15,10 @@ class BKOrderingSystem : IOrderingSystem
 
     public void DisplayMenu()
     {
-        Console.WriteLine("Burger King Menu:");
+        Console.WriteLine($"[{RestaurantName}] Menu");
         foreach (var item in BurgerKing.GetMenu().GetMenuItems())
         {
-            Console.WriteLine($"{item.Key} - ${item.Value().GetPrice():0.00}");
+            Console.WriteLine($"  - {item.Key,-28} ${item.Value().GetPrice():0.00}");
         }
     }
 
@@ -27,11 +28,11 @@ class BKOrderingSystem : IOrderingSystem
         {
             var item = BurgerKing.GetMenu().GetItem(itemName);
             currentOrder.Add(item);
-            Console.WriteLine($"{itemName} added to order.");
+            Console.WriteLine($"[{RestaurantName}] Added to order: {itemName}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine($"[{RestaurantName}] Could not add '{itemName}': {ex.Message}");
         }
     }
 
@@ -41,20 +42,26 @@ class BKOrderingSystem : IOrderingSystem
         if (item != null)
         {
             currentOrder.Remove(item);
-            Console.WriteLine($"{itemName} removed from order.");
+            Console.WriteLine($"[{RestaurantName}] Removed from order: {itemName}");
         }
         else
         {
-            Console.WriteLine($"{itemName} not found in order.");
+            Console.WriteLine($"[{RestaurantName}] Item not found in order: {itemName}");
         }
     }
 
     public void DisplayOrder()
     {
-        Console.WriteLine("Current Order:");
+        Console.WriteLine($"[{RestaurantName}] Current order");
+        if (currentOrder.Count == 0)
+        {
+            Console.WriteLine("  - No items selected");
+            return;
+        }
+
         foreach (var item in currentOrder)
         {
-            Console.WriteLine($"{item.GetType().Name} - ${item.GetPrice():0.00}");
+            Console.WriteLine($"  - {item.GetType().Name,-28} ${item.GetPrice():0.00}");
         }
     }
 
@@ -68,18 +75,19 @@ class BKOrderingSystem : IOrderingSystem
     {
         if (paymentMethod == null)
         {
-            Console.WriteLine("Select a payment method before placing the order.");
+            Console.WriteLine($"[{RestaurantName}] Select a payment method before placing the order.");
             return;
         }
 
         if (currentOrder.Count == 0)
         {
-            Console.WriteLine("Your order is empty.");
+            Console.WriteLine($"[{RestaurantName}] Your order is empty.");
             return;
         }
 
-        Console.WriteLine("Order placed successfully.");
-        paymentMethod.Pay(currentOrder.Sum(i => i.GetPrice()));
+        var total = currentOrder.Sum(i => i.GetPrice());
+        Console.WriteLine($"[{RestaurantName}] Order confirmed. Total: ${total:0.00}");
+        paymentMethod.Pay(total);
     }
 
 }

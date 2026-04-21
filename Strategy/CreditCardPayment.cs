@@ -14,8 +14,9 @@ class CreditCardPayment : IPaymentMethod
 
     public void Pay(double amount)
     {
+        Console.WriteLine($"[Payment | Credit Card] Processing payment of ${amount:0.00}");
         paymentStatus.SetStatus("Processing payment.");
         paymentStatus.SetStatus("Payment processed.");
-        Console.WriteLine($"Paid {amount} using Credit Card.");
+        Console.WriteLine("[Payment | Credit Card] Payment completed.");
     }
 }
