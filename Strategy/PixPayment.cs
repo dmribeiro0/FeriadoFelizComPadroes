@@ -1,0 +1,21 @@
+class PixPayment : IPaymentMethod
+{
+    private PaymentStatus paymentStatus;
+
+    public PixPayment()
+    {
+        paymentStatus = new PaymentStatus();
+    }
+
+    public void SetObserver(IPaymentObserver observer)
+    {
+        paymentStatus.Attach(observer);
+    }
+
+    public void Pay(double amount)
+    {
+        paymentStatus.SetStatus("Processing payment.");
+        paymentStatus.SetStatus("Payment processed.");
+        Console.WriteLine($"Paid {amount} using Pix.");
+    }
+}

@@ -2,11 +2,13 @@ class BKOrderingSystem : IOrderingSystem
 {
     private Restaurant BurgerKing;
     private List<IMenuItem> currentOrder;
-    private PaymentMethod paymentMethod;
+    private IPaymentMethod paymentMethod;
+    private IPaymentObserver paymentObserver;
 
     public BKOrderingSystem()
     {
         BurgerKing = new BurgerKing();
+        paymentObserver = new PaymentObserver();
     }
 
     public void DisplayMenu()
@@ -55,15 +57,16 @@ class BKOrderingSystem : IOrderingSystem
         }
     }
 
-    public void SetPaymentMethod(string method)
+    public void SetPaymentMethod(IPaymentMethod method)
     {
         paymentMethod = method;
+        paymentMethod.SetObserver(paymentObserver);
     }
 
     public void PlaceOrder()
     {
         Console.WriteLine("Order placed successfully.");
-        // Payment processing logic goes here
+        paymentMethod.Pay(currentOrder.Sum(i => i.GetPrice()));
     }
 
 }

@@ -2,11 +2,13 @@ class McDOrderingSystem : IOrderingSystem
 {
     private Restaurant McDonalds;
     private List<IMenuItem> currentOrder;
-    private PaymentMethod paymentMethod;
+    private IPaymentMethod paymentMethod;
+    private IPaymentObserver paymentObserver;
 
     public McDOrderingSystem()
     {
         McDonalds = new McDonalds();
+        paymentObserver = new PaymentObserver();
     }
 
     public void DisplayMenu()
@@ -55,14 +57,15 @@ class McDOrderingSystem : IOrderingSystem
         }
     }
 
-    public void SetPaymentMethod(string method)
+    public void SetPaymentMethod(IPaymentMethod method)
     {
         paymentMethod = method;
+        paymentMethod.SetObserver(paymentObserver);
     }
 
     public void PlaceOrder()
     {
         Console.WriteLine("Order placed successfully.");
-        // Payment processing logic goes here
+        paymentMethod.Pay(currentOrder.Sum(i => i.GetPrice()));
     }
 }
