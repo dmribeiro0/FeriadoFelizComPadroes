@@ -22,6 +22,13 @@ class McDonalds : IRestaurant
         menu.AddItem("Chocolate Milkshake", () => new Chocolate(new Milkshake()));
 
         // Combos
-        Combo bigMacCombo = new ComboFacade.CreateCombo
+        Combo bigMacCombo = new ComboFacade.CreateCombo(menu.GetItem("Big Mac"), menu.GetItem("Fries"), menu.GetItem("Coke"));
+        menu.AddItem("Big Mac Combo", () => bigMacCombo);
+
+        Combo bigMacBaconCombo = new ComboFacade.CreateCombo(menu.GetItem("Big Mac Bacon"), menu.GetItem("Fries"), menu.GetItem("Coke"));
+        menu.AddItem("Big Mac Bacon Combo", () => bigMacBaconCombo);
+
+        Combo chocolateMilkshakeCombo = new ComboFacade.CreateCustomCombo(new List<IMenuItem> { menu.GetItem("Chocolate Milkshake"), menu.GetItem("Fries") });
+        menu.AddItem("Chocolate Milkshake Combo", () => chocolateMilkshakeCombo);
     }
 }

@@ -22,6 +22,14 @@ class BurgerKing : IRestaurant
         menu.AddItem("Double Whopper", () => new ExtraPatty(new ExtraCheese(new Salad(new CheeseBurger()))));
         menu.AddItem("Strawberry Milkshake", () => new Strawberry(new Milkshake()));
 
-        /* Note: Add Salad and Strawberry decorators */
+        // Combos
+        Combo whopperCombo = new ComboFacade.CreateCombo(menu.GetItem("Whopper"), menu.GetItem("Fries"), menu.GetItem("Coke"));
+        menu.AddItem("Whopper Combo", () => whopperCombo);
+
+        Combo whopperBaconCombo = new ComboFacade.CreateCombo(menu.GetItem("Whopper Bacon"), menu.GetItem("Fries"), menu.GetItem("Coke"));
+        menu.AddItem("Whopper Bacon Combo", () => whopperBaconCombo);
+
+        Combo strawberryMilkshakeCombo = new ComboFacade.CreateCustomCombo(new List<IMenuItem> { menu.GetItem("Strawberry Milkshake"), menu.GetItem("Fries") });
+        menu.AddItem("Strawberry Milkshake Combo", () => strawberryMilkshakeCombo);
     }
 }
